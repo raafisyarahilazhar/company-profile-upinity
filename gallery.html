@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - Upinity</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- Navbar -->
+  <header class="bg-white shadow fixed top-0 w-full z-50" x-data="{ menuOpen: false }">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#home" class="block">
+            <img src="assets/image/logo.png" alt="Upinity Logo" class="h-10 md:h-12 object-contain">
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex space-x-6 text-sm font-medium">
+            <a href="index.html" class="hover:text-red-500">Home</a>
+            <a href="about.html" class="hover:text-red-500">About Us</a>
+            <div x-data="{ open: false }" class="relative">
+                <button @click="open = !open" class="hover:text-red-500 flex items-center space-x-1">
+                <span>Our Service</span>
+                <svg :class="{ 'rotate-180': open }" class="w-4 h-4 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+                </button>
+                <div x-show="open" @click.away="open = false" x-transition class="absolute bg-white shadow rounded mt-2 py-2 w-40 text-left z-50">
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Desain</a>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Produksi</a>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Marketing</a>
+                </div>
+            </div>
+            <a href="gallery.html" class="hover:text-red-500 text-red-600 font-semibold">Gallery</a>
+            <a href="contact.html" class="hover:text-red-500">Contact Us</a>
+            </nav>
+
+            <!-- Hamburger Menu -->
+            <button @click="menuOpen = !menuOpen" class="md:hidden focus:outline-none">
+                <svg x-show="!menuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg x-show="menuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div x-show="menuOpen" x-transition class="md:hidden px-6 pb-4 bg-white">
+            <a href="index.html" class="block py-2 border-b hover:text-red-500">Home</a>
+            <a href="about.html" class="block py-2 border-b hover:text-red-500">About Us</a>
+            
+            <details class="group py-2 border-b">
+            <summary class="cursor-pointer hover:text-red-500">Our Service</summary>
+            <div class="pl-4 mt-2 space-y-1">
+                <a href="#" class="block hover:text-red-500">Desain</a>
+                <a href="#" class="block hover:text-red-500">Produksi</a>
+                <a href="#" class="block hover:text-red-500">Marketing</a>
+            </div>
+            </details>
+
+            <a href="gallery.html" class="block py-2 border-b hover:text-red-500 text-red-600 font-semibold">Gallery</a>
+            <a href="contact.html" class="block py-2 hover:text-red-500">Contact Us</a>
+        </div>
+    </header>
+
+  <!-- Main Section -->
+  <main class="pt-28 pb-20 px-6 max-w-7xl mx-auto">
+    <h1 class="text-3xl md:text-4xl font-bold text-center py-4 mb-6">Gallery Karya Kami</h1>
+    <div class="w-16 h-1 bg-gray-800 mx-auto my-4"></div>
+    <p class="text-center text-gray-600 max-w-xl mx-auto mb-12">Kumpulan hasil karya terbaik kami dalam bentuk visual branding, media promosi, dan produksi kreatif lainnya.</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <!-- Image Item -->
+      <div class="overflow-hidden rounded-lg shadow group">
+        <img src="assets/image/logo bg.jpg" alt="Karya 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+      </div>
+      <div class="overflow-hidden rounded-lg shadow group">
+        <img src="assets/image/logo bg.jpg" alt="Karya 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+      </div>
+      <div class="overflow-hidden rounded-lg shadow group">
+        <img src="assets/image/logo bg.jpg" alt="Karya 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+      </div>
+      <div class="overflow-hidden rounded-lg shadow group">
+        <img src="assets/image/logo bg.jpg" alt="Karya 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+      </div>
+      <div class="overflow-hidden rounded-lg shadow group">
+        <img src="assets/image/logo bg.jpg" alt="Karya 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+      </div>
+      <div class="overflow-hidden rounded-lg shadow group">
+        <img src="assets/image/logo bg.jpg" alt="Karya 6" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 py-10 text-sm">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div>
+        <img src="assets/image/logo.png" alt="Upinity Logo" class="h-10 mb-4">
+        <p>Solusi visual kreatif untuk semua kebutuhan branding Anda.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3">Navigasi</h4>
+        <ul class="space-y-1">
+          <li><a href="index.html" class="hover:text-red-500">Home</a></li>
+          <li><a href="about.html" class="hover:text-red-500">About</a></li>
+          <li><a href="services.html" class="hover:text-red-500">Services</a></li>
+          <li><a href="gallery.html" class="text-red-600">Gallery</a></li>
+          <li><a href="contact.html" class="hover:text-red-500">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3">Layanan</h4>
+        <ul class="space-y-1">
+          <li>Desain Grafis</li>
+          <li>Produksi Video</li>
+          <li>Neon Box & Signage</li>
+          <li>Marketing Campaign</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3">Hubungi Kami</h4>
+        <p>0812-3456-7890</p>
+        <p>info@upinity.com</p>
+        <p>Instagram: @upinity.id</p>
+        <p>Jl. Kreatif No. 123, Jakarta</p>
+      </div>
+    </div>
+    <div class="border-t mt-10 pt-4 text-center text-sm text-gray-500">
+      ©2025 Upinity Insight Media. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</body>
+</html>
