@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery - Upinity</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Poppins', sans-serif; }
@@ -24,6 +25,7 @@
             <nav class="hidden md:flex space-x-6 text-sm font-medium">
             <a href="index.html" class="hover:text-red-500">Home</a>
             <a href="about.html" class="hover:text-red-500">About Us</a>
+            <a href="team.html" class="hover:text-red-500">Meet Our Team</a>
             <div x-data="{ open: false }" class="relative">
                 <button @click="open = !open" class="hover:text-red-500 flex items-center space-x-1">
                 <span>Our Service</span>
@@ -56,7 +58,7 @@
         <div x-show="menuOpen" x-transition class="md:hidden px-6 pb-4 bg-white">
             <a href="index.html" class="block py-2 border-b hover:text-red-500">Home</a>
             <a href="about.html" class="block py-2 border-b hover:text-red-500">About Us</a>
-            
+            <a href="team.html" class="hover:text-red-500">Meet Our Team</a>            
             <details class="group py-2 border-b">
             <summary class="cursor-pointer hover:text-red-500">Our Service</summary>
             <div class="pl-4 mt-2 space-y-1">
@@ -100,6 +102,20 @@
     </div>
   </main>
 
+  <!-- Whatssapp Button -->
+  <div class="fixed bottom-6 right-6 z-50 group">
+      <a href="https://wa.me/62" target="_blank"
+          class="flex items-center space-x-2 bg-green-500 text-white px-4 py-2 rounded-full shadow-lg hover:pr-6 transition-all duration-300 ease-in-out">
+          <div class="bg-green-600 rounded-full p-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.553 4.084 1.519 5.801L0 24l6.422-1.671A11.948 11.948 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm5.614 17.161c-.239.67-1.408 1.282-1.936 1.35-.495.063-1.105.09-1.77-.112-.407-.126-.924-.3-1.595-.589a13.553 13.553 0 01-4.973-4.273c-.34-.47-1.128-1.548-1.128-2.949 0-1.402.713-2.09.965-2.377.25-.287.548-.359.73-.359.183 0 .365.003.525.009.168.006.392-.063.613.465.221.528.749 1.822.815 1.953.066.131.11.287.02.465-.09.178-.135.287-.265.444-.13.157-.275.351-.392.472-.13.134-.264.28-.114.553.15.273.669 1.102 1.43 1.786.983.887 1.813 1.16 2.086 1.29.273.13.43.112.589-.067.16-.179.676-.787.857-1.057.182-.27.366-.224.62-.134.255.09 1.618.762 1.895.9.277.138.462.207.53.321.069.114.069.65-.17 1.32z"/>
+              </svg>
+          </div>
+          <span class="hidden group-hover:inline text-sm font-medium">Hubungi kami via Whatsapp</span>
+      </a>
+  </div>
+  <!-- End Whatsapp Button -->
+
   <!-- Footer -->
   <footer class="bg-gray-100 py-10 text-sm">
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -111,7 +127,8 @@
         <h4 class="font-semibold mb-3">Navigasi</h4>
         <ul class="space-y-1">
           <li><a href="index.html" class="hover:text-red-500">Home</a></li>
-          <li><a href="about.html" class="hover:text-red-500">About</a></li>
+          <li><a href="about.html" class="hover:text-red-500">About Us</a></li>
+          <li><a href="team.html" class="hover:text-red-500">Meet Our Team</a></li>
           <li><a href="services.html" class="hover:text-red-500">Services</a></li>
           <li><a href="gallery.html" class="text-red-600">Gallery</a></li>
           <li><a href="contact.html" class="hover:text-red-500">Contact</a></li>

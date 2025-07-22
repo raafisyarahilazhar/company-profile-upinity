@@ -1,0 +1,283 @@
+/* Import font untuk tampilan yang lebih baik */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7fa;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+/* Menghilangkan bullet point dan padding default dari list */
+.org-chart ul {
+    padding-top: 20px;
+    position: relative;
+    transition: all 0.5s;
+}
+
+.org-chart li {
+    float: left;
+    text-align: center;
+    list-style-type: none;
+    position: relative;
+    padding: 20px 5px 0 5px;
+    transition: all 0.5s;
+}
+
+/* Menggambar garis penghubung antar node */
+.org-chart li::before, .org-chart li::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 50%;
+    border-top: 2px solid #ccc;
+    width: 50%;
+    height: 20px;
+}
+.org-chart li::after {
+    right: auto;
+    left: 50%;
+    border-left: 2px solid #ccc;
+}
+.org-chart li:only-child::after, .org-chart li:only-child::before {
+    display: none;
+}
+.org-chart li:only-child {
+    padding-top: 0;
+}
+.org-chart li:first-child::before, .org-chart li:last-child::after {
+    border: 0 none;
+}
+.org-chart li:last-child::before {
+    border-right: 2px solid #ccc;
+    border-radius: 0 5px 0 0;
+}
+.org-chart li:first-child::after {
+    border-radius: 5px 0 0 0;
+}
+.org-chart ul ul::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-left: 2px solid #ccc;
+    width: 0;
+    height: 20px;
+}
+
+/* Styling untuk node (kotaknya) */
+.org-chart .node {
+    border: 2px solid #ccc;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    background-color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    min-width: 120px;
+    transition: all 0.3s;
+}
+
+/* Style saat di-hover dan style untuk node yang punya anak */
+.org-chart .node:hover {
+    background-color: #eef4ff;
+    border-color: #6a9cff;
+}
+.org-chart .node.has-children {
+    cursor: pointer;
+    background-color: #dbeaff; /* Warna berbeda untuk penanda */
+    border-color: #92b8ff;
+}
+.org-chart .node.has-children::after {
+    content: ' +'; /* Tambah tanda plus */
+    font-weight: bold;
+    color: #6a9cff;
+}
+
+/* Menyembunyikan sub-level secara default */
+.org-chart li ul {
+    display: none;
+}
+
+/* Class 'active' untuk menampilkan sub-level */
+.org-chart li.active > ul {
+    display: table;
+    margin: 0 auto;
+}
+.org-chart li.active > .node.has-children::after {
+    content: ' −'; /* Ganti tanda menjadi minus saat aktif */
+}
+
+/* Bagan Organigram */
+.organigram-chart-container {
+    overflow-x: auto;
+    padding: 2rem 1rem;
+    text-align: center;
+    background-color: #f9fafb;
+    border-radius: 10px;
+}
+.organigram-chart {
+    display: inline-block;
+    min-width: 100%;
+}
+.organigram-chart ul {
+    padding-top: 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.organigram-chart li {
+    list-style-type: none;
+    position: relative;
+    padding: 20px 5px 0 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* Garis Penghubung */
+.organigram-chart li::before, .organigram-chart li::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 50%;
+    border-top: 2px solid #d1d5db;
+    width: 50%;
+    height: 20px;
+}
+.organigram-chart li::after {
+    right: auto;
+    left: 50%;
+    border-left: 2px solid #d1d5db;
+}
+.organigram-chart li:only-child::after, .organigram-chart li:only-child::before {
+    display: none;
+}
+.organigram-chart li:only-child {
+    padding-top: 0;
+}
+.organigram-chart li:first-child::before, .organigram-chart li:last-child::after {
+    border: 0 none;
+}
+.organigram-chart li:last-child::before {
+    border-right: 2px solid #d1d5db;
+    border-radius: 0 5px 0 0;
+}
+.organigram-chart li:first-child::after {
+    border-radius: 5px 0 0 0;
+}
+.organigram-chart ul ul::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-left: 2px solid #d1d5db;
+    width: 0;
+    height: 20px;
+}
+/* PERUBAHAN: Ukuran Kartu Diperkecil */
+.node-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    width: 180px; /* Diperkecil */
+    text-align: center;
+}
+.node-card img {
+    width: 60px; /* Diperkecil */
+    height: 60px; /* Diperkecil */
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 8px;
+    border: 2px solid;
+}
+.node-card .name {
+    font-weight: 600;
+    font-size: 0.9rem; /* Diperkecil */
+    color: #1f2937;
+}
+.node-card .title {
+    font-size: 0.75rem; /* Diperkecil */
+    color: #6b7280;
+}
+/* Pewarnaan Kartu */
+.ceo { background-color: #f0fdf4; border-color: #a7f3d0; }
+.ceo img { border-color: #34d399; }
+.director { background-color: #fefce8; border-color: #fde047; }
+.director img { border-color: #facc15; }
+.manager { background-color: #eff6ff; border-color: #93c5fd; }
+.manager img { border-color: #60a5fa; }
+.lead { background-color: #faf5ff; border-color: #e9d5ff; }
+.lead img { border-color: #c084fc; }
+.staff { background-color: #fef2f2; border-color: #fca5a5; }
+.staff img { border-color: #f87171; }
+
+/* BARU: Style untuk daftar vertikal */
+.organigram-chart ul.vertical-list {
+    display: block;
+    padding-top: 20px;
+}
+.organigram-chart ul.vertical-list::before {
+    border-left: 2px solid #d1d5db;
+    height: 20px;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0;
+    transform: translateX(-50%);
+}
+.organigram-chart ul.vertical-list li {
+    padding: 15px 0 0 0;
+}
+.organigram-chart ul.vertical-list li::before,
+.organigram-chart ul.vertical-list li::after {
+    display: none;
+}
+.organigram-chart ul.vertical-list li .node-card {
+    position: relative;
+}
+.organigram-chart ul.vertical-list li .node-card::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 2px solid #d1d5db;
+    height: 15px;
+    width: 0;
+}
+
+/* Organigram */
+.org-chart .node-container {
+    position: relative;
+    padding-left: 3rem; 
+}
+.org-chart .node-container::before,
+.org-chart .node-container::after {
+    content: '';
+    position: absolute;
+    left: 1.5rem; 
+    border-color: #cbd5e1;
+}
+.org-chart .node-container::before {
+    border-left-width: 2px;
+    top: 0;
+    bottom: 0;
+}
+.org-chart .node-container::after {
+    border-top-width: 2px;
+    top: 2rem; /* Disesuaikan agar pas dengan tengah gambar */
+    width: 1.5rem; 
+}
+.org-chart .node-container:last-child::before {
+    height: 2rem;
+}

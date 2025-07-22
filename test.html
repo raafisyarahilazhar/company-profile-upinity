@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth" x-data="{ menuOpen: false }" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Upinity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <header class="bg-white shadow fixed top-0 w-full z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="block">
+                <img src="assets/image/logo.png" alt="Upinity Logo" class="h-10 md:h-12 object-contain">
+            </a>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="index.html" class="hover:text-red-500">Home</a>
+                <a href="about.html" class="hover:text-red-500">About Us</a>
+                <a href="team.html" class="hover:text-red-500 text-red-600 font-semibold">Meet Our Team</a>
+                <div x-data="{ open: false }" class="relative">
+                    <button @click="open = !open" class="hover:text-red-500 flex items-center space-x-1">
+                        <span>Our Service</span>
+                        <svg :class="{ 'rotate-180': open }" class="w-4 h-4 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div x-show="open" @click.away="open = false" x-transition class="absolute bg-white shadow rounded mt-2 py-2 w-40 text-left z-50">
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Desain</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Produksi</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Marketing</a>
+                    </div>
+                </div>
+                <a href="gallery.html" class="hover:text-red-500">Gallery</a>
+                <a href="contact.html" class="hover:text-red-500">Contact Us</a>
+            </nav>
+
+            <button @click="menuOpen = !menuOpen" class="md:hidden focus:outline-none">
+                <svg x-show="!menuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg x-show="menuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <div x-show="menuOpen" x-transition class="md:hidden px-6 pb-4 bg-white">
+            <a href="index.html" class="block py-2 border-b hover:text-red-500">Home</a>
+            <a href="about.html" class="block py-2 border-b hover:text-red-500">About Us</a>
+            <a href="team.html" class="block py-2 border-b hover:text-red-500 text-red-600 font-semibold">Meet Our Team</a>
+            <details class="group py-2 border-b">
+                <summary class="cursor-pointer hover:text-red-500">Our Service</summary>
+                <div class="pl-4 mt-2 space-y-1">
+                    <a href="#" class="block hover:text-red-500">Desain</a>
+                    <a href="#" class="block hover:text-red-500">Produksi</a>
+                    <a href="#" class="block hover:text-red-500">Marketing</a>
+                </div>
+            </details>
+            <a href="gallery.html" class="block py-2 border-b hover:text-red-500">Gallery</a>
+            <a href="contact.html" class="block py-2 hover:text-red-500">Contact Us</a>
+        </div>
+    </header>
+
+<section class="py-20 bg-gray-50">
+    <div class="max-w-full mx-auto px-6">
+        <h2 class="text-3xl font-semibold text-center mb-4 mt-10">Struktur Organisasi</h2>
+        <div class="w-16 mx-auto border-b-2 border-gray-700 mb-12"></div>
+
+        <style>
+            .organigram-chart-container {
+                overflow-x: auto;
+                padding: 2rem 1rem;
+                text-align: center;
+                background-color: #f9fafb;
+                border-radius: 10px;
+            }
+            .organigram-chart {
+                display: inline-block;
+                min-width: 100%;
+            }
+            .organigram-chart ul {
+                padding-top: 20px;
+                position: relative;
+                display: flex;
+                justify-content: center;
+            }
+            .organigram-chart li {
+                list-style-type: none;
+                position: relative;
+                padding: 20px 5px 0 5px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            /* Garis Penghubung */
+            .organigram-chart li::before, .organigram-chart li::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 50%;
+                border-top: 2px solid #d1d5db;
+                width: 50%;
+                height: 20px;
+            }
+            .organigram-chart li::after {
+                right: auto;
+                left: 50%;
+                border-left: 2px solid #d1d5db;
+            }
+            .organigram-chart li:only-child::after, .organigram-chart li:only-child::before {
+                display: none;
+            }
+            .organigram-chart li:only-child {
+                padding-top: 0;
+            }
+            .organigram-chart li:first-child::before, .organigram-chart li:last-child::after {
+                border: 0 none;
+            }
+            .organigram-chart li:last-child::before {
+                border-right: 2px solid #d1d5db;
+                border-radius: 0 5px 0 0;
+            }
+            .organigram-chart li:first-child::after {
+                border-radius: 5px 0 0 0;
+            }
+            .organigram-chart ul ul::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 50%;
+                border-left: 2px solid #d1d5db;
+                width: 0;
+                height: 20px;
+            }
+            /* PERUBAHAN: Ukuran Kartu Diperkecil */
+            .node-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 12px;
+                border: 1px solid #d1d5db;
+                border-radius: 8px;
+                background-color: #fff;
+                box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+                width: 180px; /* Diperkecil */
+                text-align: center;
+            }
+            .node-card img {
+                width: 60px; /* Diperkecil */
+                height: 60px; /* Diperkecil */
+                border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 8px;
+                border: 2px solid;
+            }
+            .node-card .name {
+                font-weight: 600;
+                font-size: 0.9rem; /* Diperkecil */
+                color: #1f2937;
+            }
+            .node-card .title {
+                font-size: 0.75rem; /* Diperkecil */
+                color: #6b7280;
+            }
+            /* Pewarnaan Kartu */
+            .ceo { background-color: #f0fdf4; border-color: #a7f3d0; }
+            .ceo img { border-color: #34d399; }
+            .director { background-color: #fefce8; border-color: #fde047; }
+            .director img { border-color: #facc15; }
+            .manager { background-color: #eff6ff; border-color: #93c5fd; }
+            .manager img { border-color: #60a5fa; }
+            .lead { background-color: #faf5ff; border-color: #e9d5ff; }
+            .lead img { border-color: #c084fc; }
+            .staff { background-color: #fef2f2; border-color: #fca5a5; }
+            .staff img { border-color: #f87171; }
+
+            /* BARU: Style untuk daftar vertikal */
+            .organigram-chart ul.vertical-list {
+                display: block;
+                padding-top: 20px;
+            }
+            .organigram-chart ul.vertical-list::before {
+                border-left: 2px solid #d1d5db;
+                height: 20px;
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 50%;
+                width: 0;
+                transform: translateX(-50%);
+            }
+            .organigram-chart ul.vertical-list li {
+                padding: 15px 0 0 0;
+            }
+            .organigram-chart ul.vertical-list li::before,
+            .organigram-chart ul.vertical-list li::after {
+                display: none;
+            }
+            .organigram-chart ul.vertical-list li .node-card {
+                position: relative;
+            }
+            .organigram-chart ul.vertical-list li .node-card::before {
+                content: '';
+                position: absolute;
+                top: -15px;
+                left: 50%;
+                transform: translateX(-50%);
+                border-left: 2px solid #d1d5db;
+                height: 15px;
+                width: 0;
+            }
+        </style>
+
+        <div class="organigram-chart-container">
+            <div class="organigram-chart">
+                <ul>
+                    <li>
+                        <div class="node-card ceo">
+                            <img src="https://placehold.co/100x100/34D399/FFFFFF?text=BH" alt="Foto Budi Hartono">
+                            <p class="name">Budi Hartono</p>
+                            <p class="title">Direktur Utama</p>
+                        </div>
+                        <ul>
+                            <li>
+                                <div class="node-card director">
+                                    <img src="https://placehold.co/100x100/FACC15/FFFFFF?text=SD" alt="Foto Sinta Dewi">
+                                    <p class="name">Sinta Dewi</p>
+                                    <p class="title">Direktur Operasional</p>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <div class="node-card manager">
+                                            <img src="https://placehold.co/100x100/60A5FA/FFFFFF?text=IC" alt="Foto Indah Cahyani">
+                                            <p class="name">Indah Cahyani</p>
+                                            <p class="title">Editor in Chief</p>
+                                        </div>
+                                        <ul class="vertical-list"> <li><div class="node-card staff"><img src="https://placehold.co/100x100/F87171/FFFFFF?text=JS" alt="Foto"><p class="name">Joko Susilo</p><p class="title">Content Writer</p></div></li>
+                                            <li><div class="node-card staff"><img src="https://placehold.co/100x100/F87171/FFFFFF?text=MA" alt="Foto"><p class="name">Maya Anggraini</p><p class="title">Content Writer</p></div></li>
+                                            <li><div class="node-card staff"><img src="https://placehold.co/100x100/F87171/FFFFFF?text=DG" alt="Foto"><p class="name">Dedi Gustiawan</p><p class="title">Desainer Grafis</p></div></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="node-card manager">
+                                            <img src="https://placehold.co/100x100/60A5FA/FFFFFF?text=PM" alt="Foto Putri Mawar">
+                                            <p class="name">Putri Mawar</p>
+                                            <p class="title">Product Manager</p>
+                                        </div>
+                                         <ul class="vertical-list">
+                                            <li><div class="node-card staff"><img src="https://placehold.co/100x100/F87171/FFFFFF?text=DS" alt="Foto"><p class="name">David Sugiarto</p><p class="title">Digital Marketing Specialist</p></div></li>
+                                            <li><div class="node-card staff"><img src="https://placehold.co/100x100/F87171/FFFFFF?text=NA" alt="Foto"><p class="name">Nadia Aulia</p><p class="title">Digital Marketing Specialist</p></div></li>
+                                            <li><div class="node-card staff"><img src="https://placehold.co/100x100/F87171/FFFFFF?text=SP" alt="Foto"><p class="name">Sari Puspita</p><p class="title">SEO/Social Media Specialist</p></div></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="node-card manager">
+                                            <img src="https://placehold.co/100x100/60A5FA/FFFFFF?text=KS" alt="Foto Kevin Sanjaya">
+                                            <p class="name">Kevin Sanjaya</p>
+                                            <p class="title">Konsultan Senior</p>
+                                        </div>
+                                        <ul class="vertical-list">
+                                            <li><div class="node-card staff"><img src="https://placehold.co/100x100/F87171/FFFFFF?text=KP" alt="Foto"><p class="name">Kartika Putri</p><p class="title">Konsultan Junior</p></div></li>
+                                            <li><div class="node-card staff"><img src="https://placehold.co/100x100/F87171/FFFFFF?text=RM" alt="Foto"><p class="name">Rizky Maulana</p><p class="title">Konsultan Junior</p></div></li>
+                                            <li><div class="node-card staff"><img src="https://placehold.co/100x100/F87171/FFFFFF?text=PC" alt="Foto"><p class="name">Putri Cempaka</p><p class="title">Project Coordinator</p></div></li>
+                                        </ul>
+                                    </li>
+                                     <li>
+                                        <div class="node-card manager">
+                                            <img src="https://placehold.co/100x100/60A5FA/FFFFFF?text=AM" alt="Foto Ahmad Mubarok">
+                                            <p class="name">Ahmad Mubarok</p>
+                                            <p class="title">Account Manager</p>
+                                        </div>
+                                        <ul class="vertical-list">
+                                             <li><div class="node-card staff"><img src="https://placehold.co/100x100/F87171/FFFFFF?text=SS" alt="Foto"><p class="name">Siti Sarah</p><p class="title">Support Specialist</p></div></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="node-card director">
+                                    <img src="https://placehold.co/100x100/FACC15/FFFFFF?text=RW" alt="Foto Rian Wijaya">
+                                    <p class="name">Rian Wijaya</p>
+                                    <p class="title">Direktur Teknologi (CTO)</p>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <div class="node-card lead">
+                                            <img src="https://placehold.co/100x100/C084FC/FFFFFF?text=AS" alt="Foto Agus Setiawan">
+                                            <p class="name">Agus Setiawan</p>
+                                            <p class="title">Lead Developer</p>
+                                        </div>
+                                        <ul class="vertical-list">
+                                            <li><div class="node-card staff"><img src="https://placehold.co/100x100/F87171/FFFFFF?text=CD" alt="Foto"><p class="name">Citra Dewi</p><p class="title">Frontend Developer</p></div></li>
+                                            <li><div class="node-card staff"><img src="https://placehold.co/100x100/F87171/FFFFFF?text=EN" alt="Foto"><p class="name">Eko Nugroho</p><p class="title">Backend Developer</p></div></li>
+                                            <li><div class="node-card staff"><img src="https://placehold.co/100x100/F87171/FFFFFF?text=DN" alt="Foto"><p class="name">Dian Novita</p><p class="title">Backend Developer</p></div></li>
+                                            <li><div class="node-card staff"><img src="https://placehold.co/100x100/F87171/FFFFFF?text=FH" alt="Foto"><p class="name">Fajar Hidayat</p><p class="title">UI/UX Designer</p></div></li>
+                                            <li><div class="node-card staff"><img src="https://placehold.co/100x100/F87171/FFFFFF?text=IS" alt="Foto"><p class="name">Indra Saputra</p><p class="title">QA Engineer</p></div></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="node-card lead">
+                                            <img src="https://placehold.co/100x100/C084FC/FFFFFF?text=GP" alt="Foto Gita Permata">
+                                            <p class="name">Gita Permata</p>
+                                            <p class="title">Data Scientist</p>
+                                        </div>
+                                        <ul class="vertical-list">
+                                            <li><div class="node-card staff"><img src="https://placehold.co/100x100/F87171/FFFFFF?text=HP" alt="Foto"><p class="name">Hadi Prabowo</p><p class="title">Data Engineer</p></div></li>
+                                            <li><div class="node-card staff"><img src="https://placehold.co/100x100/F87171/FFFFFF?text=RA" alt="Foto"><p class="name">Rina Amelia</p><p class="title">Data Engineer</p></div></li>
+                                            <li><div class="node-card staff"><img src="https://placehold.co/100x100/F87171/FFFFFF?text=BW" alt="Foto"><p class="name">Bayu Wisesa</p><p class="title">Analis Bisnis</p></div></li>
+                                        </ul>
+                                    </li>
+                                     <li>
+                                        <div class="node-card staff">
+                                            <img src="https://placehold.co/100x100/F87171/FFFFFF?text=IS" alt="Foto Irfan Santoso">
+                                            <p class="name">Irfan Santoso</p>
+                                            <p class="title">IT Support & Infrastruktur</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                             <li>
+                                <div class="node-card director">
+                                    <img src="https://placehold.co/100x100/FACC15/FFFFFF?text=LP" alt="Foto Lestari Putri">
+                                    <p class="name">Lestari Putri</p>
+                                    <p class="title">Manajer Keuangan & HRD</p>
+                                </div>
+                                <ul class="vertical-list">
+                                    <li>
+                                        <div class="node-card staff">
+                                            <img src="https://placehold.co/100x100/F87171/FFFFFF?text=AW" alt="Foto Adi Wibowo">
+                                            <p class="name">Adi Wibowo</p>
+                                            <p class="title">Staf Administrasi & Logistik</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <div class="fixed bottom-6 right-6 z-50 group">
+        <a href="https://wa.me/6281234567890" target="_blank"
+            class="flex items-center space-x-2 bg-green-500 text-white px-4 py-2 rounded-full shadow-lg hover:pr-6 transition-all duration-300 ease-in-out">
+            <div class="bg-green-600 rounded-full p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.553 4.084 1.519 5.801L0 24l6.422-1.671A11.948 11.948 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm5.614 17.161c-.239.67-1.408 1.282-1.936 1.35-.495.063-1.105.09-1.77-.112-.407-.126-.924-.3-1.595-.589a13.553 13.553 0 01-4.973-4.273c-.34-.47-1.128-1.548-1.128-2.949 0-1.402.713-2.09.965-2.377.25-.287.548-.359.73-.359.183 0 .365.003.525.009.168.006.392-.063.613.465.221.528.749 1.822.815 1.953.066.131.11.287.02.465-.09.178-.135.287-.265.444-.13.157-.275.351-.392.472-.13.134-.264.28-.114.553.15.273.669 1.102 1.43 1.786.983.887 1.813 1.16 2.086 1.29.273.13.43.112.589-.067.16-.179.676-.787.857-1.057.182-.27.366-.224.62-.134.255.09 1.618.762 1.895.9.277.138.462.207.53.321.069.114.069.65-.17 1.32z"/>
+                </svg>
+            </div>
+            <span class="hidden group-hover:inline text-sm font-medium">Hubungi kami via Whatsapp</span>
+        </a>
+    </div>
+
+    <footer id="contact" class="bg-gray-100 py-12 mt-20 text-gray-800 font-poppins">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <img src="assets/image/logo.png" alt="Upinity Logo" class="h-10 mb-4">
+                <p class="text-sm">Upinity adalah mitra kreatif Anda dalam mewujudkan branding visual yang kuat dan berdampak di era digital.</p>
+            </div>
+            <div>
+                <h4 class="font-semibold text-lg mb-3">Navigasi</h4>
+                <ul class="text-sm space-y-1">
+                    <li><a href="index.html" class="hover:text-red-500">Home</a></li>
+                    <li><a href="about.html" class="hover:text-red-600">About Us</a></li>
+                    <li><a href="team.html" class="text-red-500">Meet Our Team</a></li>
+                    <li><a href="#" class="hover:text-red-500">Our Services</a></li>
+                    <li><a href="gallery.html" class="hover:text-red-500">Gallery</a></li>
+                    <li><a href="contact.html" class="hover:text-red-600">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold text-lg mb-3">Layanan Kami</h4>
+                <ul class="text-sm space-y-1">
+                    <li>Neon Box & Signage</li>
+                    <li>Letter Sign & Videotron</li>
+                    <li>Brand Identity</li>
+                    <li>Produksi Media</li>
+                    <li>Marketing Campaign</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold text-lg mb-3">Hubungi Kami</h4>
+                <ul class="text-sm space-y-1">
+                    <li><strong>Telepon:</strong> 0812-3456-7890</li>
+                    <li><strong>Email:</strong> info@upinity.com</li>
+                    <li><strong>Instagram:</strong> @upinity.id</li>
+                    <li><strong>Alamat:</strong> Jl. Kreatif No.123, Jakarta</li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t mt-10 pt-4 text-center text-sm text-gray-500">
+            ©2025 Upinity Insight Media. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    
+</body>
+</html>

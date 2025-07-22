@@ -23,23 +23,24 @@
             </a>
             <!-- Desktop Nav -->
             <nav class="hidden md:flex space-x-6 text-sm font-medium">
-            <a href="index.html" class="hover:text-red-500 text-red-600 font-semibold">Home</a>
-            <a href="about.html" class="hover:text-red-500">About Us</a>
-            <div x-data="{ open: false }" class="relative">
-                <button @click="open = !open" class="hover:text-red-500 flex items-center space-x-1">
-                <span>Our Service</span>
-                <svg :class="{ 'rotate-180': open }" class="w-4 h-4 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-                </button>
-                <div x-show="open" @click.away="open = false" x-transition class="absolute bg-white shadow rounded mt-2 py-2 w-40 text-left z-50">
-                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Desain</a>
-                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Produksi</a>
-                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Marketing</a>
+                <a href="index.html" class="hover:text-red-500 text-red-600 font-semibold">Home</a>
+                <a href="about.html" class="hover:text-red-500">About Us</a>
+                <a href="team.html" class="hover:text-red-500">Meet Our Team</a>
+                <div x-data="{ open: false }" class="relative">
+                    <button @click="open = !open" class="hover:text-red-500 flex items-center space-x-1">
+                    <span>Our Service</span>
+                    <svg :class="{ 'rotate-180': open }" class="w-4 h-4 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                    </button>
+                    <div x-show="open" @click.away="open = false" x-transition class="absolute bg-white shadow rounded mt-2 py-2 w-40 text-left z-50">
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Desain</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Produksi</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Marketing</a>
+                    </div>
                 </div>
-            </div>
-            <a href="gallery.html" class="hover:text-red-500">Gallery</a>
-            <a href="contact.html" class="hover:text-red-500">Contact Us</a>
+                <a href="gallery.html" class="hover:text-red-500">Gallery</a>
+                <a href="contact.html" class="hover:text-red-500">Contact Us</a>
             </nav>
 
             <!-- Hamburger Menu -->
@@ -57,7 +58,7 @@
         <div x-show="menuOpen" x-transition class="md:hidden px-6 pb-4 bg-white">
             <a href="index.html" class="block py-2 border-b hover:text-red-500 text-red-600 font-semibold">Home</a>
             <a href="about.html" class="block py-2 border-b hover:text-red-500">About Us</a>
-            
+            <a href="team.html" class="hover:text-red-500">Meet Our Team</a>           
             <details class="group py-2 border-b">
             <summary class="cursor-pointer hover:text-red-500">Our Service</summary>
             <div class="pl-4 mt-2 space-y-1">
@@ -73,15 +74,15 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="relative h-screen bg-cover bg-center text-white flex items-center justify-center" style="background-image: url('https://source.unsplash.com/1600x900/?media,technology');">
-    <div class="absolute inset-0 bg-black/50"></div> <!-- Overlay gelap -->
-    <div class="relative z-10 text-center px-4">
-        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">Solusi Digital & Kreatif</h1>
-        <p class="text-lg md:text-2xl mb-6">Membantu brand Anda tampil berbeda dan profesional di era digital</p>
-        <a href="#services" class="bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-3 rounded-lg transition duration-300 ease-in-out shadow-lg">
-        Klik Disini
-        </a>
-    </div>
+    <section id="home" class="relative h-screen bg-cover bg-center text-white flex items-center justify-center" style="background-image: url('assets/image/bg.jpg');">
+        <div class="absolute inset-0 bg-black/50"></div> <!-- Overlay gelap -->
+        <div class="relative z-10 text-center px-4">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">Solusi Digital & Kreatif</h1>
+            <p class="text-lg md:text-2xl mb-6">Membantu brand Anda tampil berbeda dan profesional di era digital</p>
+            <a href="#services" class="bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-3 rounded-lg transition duration-300 ease-in-out shadow-lg">
+            Klik Disini
+            </a>
+        </div>
     </section>
 
     <!-- About Section -->
@@ -103,7 +104,7 @@
     <!-- Services Section -->
     <section id="services" class="bg-gray-100 py-20">
     <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold">SPESIALISASI</h2>
+        <h2 class="text-3xl font-bold">Apa yang Kami Tawarkan?</h2>
         <div class="w-20 h-1 bg-gray-800 mx-auto mt-4"></div>
     </div>
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 px-6">
@@ -114,8 +115,8 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 3a.75.75 0 000 1.5h1.5v2.25a.75.75 0 001.5 0V4.5h1.5a.75.75 0 000-1.5h-4.5zM4.5 9.75a.75.75 0 011.5 0v1.5h2.25a.75.75 0 010 1.5H6v1.5a.75.75 0 01-1.5 0v-4.5zM14.25 15a.75.75 0 100 1.5h4.5a.75.75 0 000-1.5h-4.5zM9 16.5a.75.75 0 01.75-.75h1.5a.75.75 0 010 1.5h-1.5A.75.75 0 019 16.5z" />
                 </svg>
                 </div>
-                <h3 class="text-xl font-bold mb-2">Desain Grafis</h3>
-                <p class="text-sm text-gray-600">Membuat desain visual menarik dan profesional untuk kebutuhan branding Anda.</p>
+                <h3 class="text-xl font-bold mb-2">Penerbitan & Konten</h3>
+                <p class="text-sm text-gray-600">Layanan penerbitan surat kabar, majalah, buletin, serta konten kreatif untuk media dan korporat.</p>
             </div>
 
             <!-- Video Produksi -->
@@ -125,8 +126,8 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M4 6h8a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2z" />
                 </svg>
                 </div>
-                <h3 class="text-xl font-bold mb-2">Video Produksi</h3>
-                <p class="text-sm text-gray-600">Produksi video iklan, profil perusahaan, dan konten sosial media yang kreatif.</p>
+                <h3 class="text-xl font-bold mb-2">Teknologi Informasi</h3>
+                <p class="text-sm text-gray-600">Pengembangan software, aplikasi custom, konsultasi IT, dan solusi digital berbasis AI/cloud.</p>
             </div>
 
             <!-- Digital Marketing -->
@@ -136,18 +137,50 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.32 4.047a1 1 0 00.95.69h4.262c.969 0 1.371 1.24.588 1.81l-3.447 2.5a1 1 0 00-.364 1.118l1.32 4.047c.3.921-.755 1.688-1.54 1.118l-3.447-2.5a1 1 0 00-1.176 0l-3.447 2.5c-.784.57-1.838-.197-1.54-1.118l1.32-4.047a1 1 0 00-.364-1.118l-3.447-2.5c-.783-.57-.38-1.81.588-1.81h4.262a1 1 0 00.95-.69l1.32-4.047z" />
                 </svg>
                 </div>
-                <h3 class="text-xl font-bold mb-2">Digital Marketing</h3>
-                <p class="text-sm text-gray-600">Strategi pemasaran yang tepat sasaran untuk menjangkau audiens lebih luas.</p>
+                <h3 class="text-xl font-bold mb-2">Manajemen Data</h3>
+                <p class="text-sm text-gray-600">Pengolahan data, analisis, dan pembuatan platform digital (komersial/non-komersial).</p>
+            </div>
+
+            <div class="bg-white p-6 rounded shadow text-center">
+                <div class="mb-4 flex justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.32 4.047a1 1 0 00.95.69h4.262c.969 0 1.371 1.24.588 1.81l-3.447 2.5a1 1 0 00-.364 1.118l1.32 4.047c.3.921-.755 1.688-1.54 1.118l-3.447-2.5a1 1 0 00-1.176 0l-3.447 2.5c-.784.57-1.838-.197-1.54-1.118l1.32-4.047a1 1 0 00-.364-1.118l-3.447-2.5c-.783-.57-.38-1.81.588-1.81h4.262a1 1 0 00.95-.69l1.32-4.047z" />
+                </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Konsultasi Bisnis</h3>
+                <p class="text-sm text-gray-600">Pengolahan data, analisis, dan pembuatan platform digital (komersial/non-komersial).</p>
             </div>
         </div>
     </section>
 
     <!-- Iklan Section -->
     <section class="py-20 bg-white text-center">
-    <h2 class="text-3xl font-bold mb-6">Bangun Branding Kuat, Tampil Beda di Era Digital!</h2>
-    <p class="max-w-2xl mx-auto text-lg mb-8">Bersama Upinity, ciptakan konten visual dan strategi marketing yang selaras dengan identitas brand Anda. Konsultasi gratis hari ini!</p>
-    <button class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg">Konsultasi Sekarang</button>
+        <h2 class="text-3xl font-bold mb-6">Mengapa Memilih Kami?</h2>
+        <p class="max-w-2xl mx-auto text-lg mb-8">
+            Tim Multidisiplin – ahli IT, kreator konten, dan konsultan bisnis. ✔
+            <br>
+            Solusi Terintegrasi – Dari ide hingga eksekusi, semua dalam satu atap. ✔
+            <br>
+            Berbasis Data – Keputusan dan strategi didukung analisis mendalam. ✔
+            <br>
+            Fleksibel & Inovatif – Solusi disesuaikan dengan kebutuhan unik klien. ✔
+        </p>
+        <button class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg">Konsultasi Sekarang</button>
     </section>
+
+    <!-- Whatssapp Button -->
+    <div class="fixed bottom-6 right-6 z-50 group">
+        <a href="https://wa.me/6281234567890" target="_blank"
+            class="flex items-center space-x-2 bg-green-500 text-white px-4 py-2 rounded-full shadow-lg hover:pr-6 transition-all duration-300 ease-in-out">
+            <div class="bg-green-600 rounded-full p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.553 4.084 1.519 5.801L0 24l6.422-1.671A11.948 11.948 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm5.614 17.161c-.239.67-1.408 1.282-1.936 1.35-.495.063-1.105.09-1.77-.112-.407-.126-.924-.3-1.595-.589a13.553 13.553 0 01-4.973-4.273c-.34-.47-1.128-1.548-1.128-2.949 0-1.402.713-2.09.965-2.377.25-.287.548-.359.73-.359.183 0 .365.003.525.009.168.006.392-.063.613.465.221.528.749 1.822.815 1.953.066.131.11.287.02.465-.09.178-.135.287-.265.444-.13.157-.275.351-.392.472-.13.134-.264.28-.114.553.15.273.669 1.102 1.43 1.786.983.887 1.813 1.16 2.086 1.29.273.13.43.112.589-.067.16-.179.676-.787.857-1.057.182-.27.366-.224.62-.134.255.09 1.618.762 1.895.9.277.138.462.207.53.321.069.114.069.65-.17 1.32z"/>
+                </svg>
+            </div>
+            <span class="hidden group-hover:inline text-sm font-medium">Hubungi kami via Whatsapp</span>
+        </a>
+    </div>
+    <!-- End Whatsapp Button -->
 
     <!-- Footer -->
     <footer id="contact" class="bg-gray-100 py-12 mt-20 text-gray-800 font-poppins">
@@ -166,6 +199,7 @@
                 <li><a href="#home" class="text-red-600">Home</a></li>
                 <li><a href="#about" class="hover:text-red-500">About Us</a></li>
                 <li><a href="#services" class="hover:text-red-500">Our Services</a></li>
+                <li><a href="teams.html" class="hover:text-red-500">Meet Our Team</a></li>
                 <li><a href="#gallery" class="hover:text-red-500">Gallery</a></li>
                 <li><a href="#contact" class="hover:text-red-500">Contact Us</a></li>
             </ul>
@@ -202,7 +236,6 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </body>
 </html>
